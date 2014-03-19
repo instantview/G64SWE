@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Collections;
+
+namespace XuMinghui
+{
+    public class Items
+    {
+        public ArrayList PlantPrice = new ArrayList();
+        public ArrayList PlantAmount = new ArrayList();
+        public int MinPrice { get; set; }
+        public int MaxPrice { get; set; }
+
+        public void Buy(int p1,int p2)
+        {
+            if (p2 < (int)PlantAmount[p1])
+            {
+                int a =(int)PlantAmount[p1] - p2;
+                PlantAmount.RemoveAt(p1);
+                PlantAmount.Insert(p1,a);
+            }
+        }
+        public void SetMaxPrice(int p) 
+        {
+            MaxPrice = p;
+        }
+        public void SetMinPrice(int p)
+        {
+            MinPrice = p;
+        }
+
+        public void SetPrice()
+        {
+            Random ro = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                PlantPrice.Add(ro.Next(MinPrice, MaxPrice));
+                PlantAmount.Add(ro.Next(10, 40));
+            }
+        }
+
+    }
+}
