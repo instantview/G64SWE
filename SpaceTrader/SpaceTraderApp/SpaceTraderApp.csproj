@@ -83,12 +83,11 @@
     <None Include="Resources\dashboard-1280-800.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="planets.jpg" />
     <None Include="Resources\planets_board.png" />
     <None Include="Resources\dashboard.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Documents\GitHub\G64SWE\SpaceTrader\SpaceTrader\SpaceTrader.csproj">
+    <ProjectReference Include="..\SpaceTrader\SpaceTrader.csproj">
       <Project>{58ed5f66-8328-42ce-8d91-45a053ffdf57}</Project>
       <Name>SpaceTrader</Name>
     </ProjectReference>

@@ -10,10 +10,10 @@ namespace SpaceTrader
     {
         private String _name;
         private int _quantity;
-        private String _price;
+        private Decimal _price;
 
 
-        public Item(String name, int quantity, String price)
+        public Item(String name, int quantity, Decimal price)
         {
             this._name = name;
             this._price = price;
@@ -33,8 +33,8 @@ namespace SpaceTrader
             set { _quantity = value; }
         }
 
-        //TODO: change to decimal 
-        public String Price
+        
+        public Decimal Price
         {
             get { return _price; }
             set { _price = value; }

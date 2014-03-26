@@ -40,10 +40,10 @@ namespace SpaceTraderApp
         private void InitializeGridViews()
         {
             List<Item> items = new List<Item> { 
-                new Item("Pencil Sharpener Here", 3, "$200"), 
-                new Item("Paper", 30, "$2,000"), 
-                new Item("Box", 300, "$20,000"), 
-                new Item("Book", 3000, "$20")
+                new Item("Pencil Sharpener Here", 3, 200), 
+                new Item("Paper", 30, 2000), 
+                new Item("Box", 300, 20000), 
+                new Item("Book", 3000, 20)
             };
 
             // Add table content
