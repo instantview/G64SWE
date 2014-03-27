@@ -50,9 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CargoHoldTest.cs" />
     <Compile Include="PlayerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ItemTest.cs" />
+    <Compile Include="SpaceshipTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceTrader\SpaceTrader.csproj">
