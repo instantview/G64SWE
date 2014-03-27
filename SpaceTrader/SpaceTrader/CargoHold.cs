@@ -23,6 +23,7 @@ namespace SpaceTrader
                 return _items;
         }
 
+        /* Add an item to the cargo hold. */
         public void AddItems(List<Item> items)
         {
             _items = new List<Item>();
@@ -33,7 +34,7 @@ namespace SpaceTrader
 			}
         }
 
-
+        /* Remove an item from the cargo hold. Returns true if successful */
         public bool RemoveItem(Item item)
         {
             if (_items.Exists(x => x.Name == item.Name))
