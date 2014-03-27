@@ -10,11 +10,17 @@ namespace SpaceTraderTest
     public class CargoHoldTest
     {
         CargoHold ch;
+        List<Item> items;
+        Item sampleItem; 
 
         [TestInitialize]
         public void init()
         {
-            ch = new CargoHold(); 
+            ch = new CargoHold();
+            sampleItem = new Item("C", 3, 20.00m);
+            items = new List<Item>{ new Item("A", 1, 1.00m), 
+                                    new Item("B", 2, 10.00m), 
+                                    sampleItem };
         }
 
         [TestMethod]
@@ -33,10 +39,10 @@ namespace SpaceTraderTest
         [TestMethod]
         public void AddItems_Add3Items_ShouldSaveItemsToCargoHold()
         {
-            List<Item> items = new List<Item>{ 
-                new Item("A", 1, 1.00m), 
-                new Item("B", 2, 10.00m), 
-                new Item("C", 3, 20.00m)};
+            //List<Item> items = new List<Item>{ 
+            //    new Item("A", 1, 1.00m), 
+            //    new Item("B", 2, 10.00m), 
+            //    new Item("C", 3, 20.00m)};
             ch.AddItems(items);
 
             CollectionAssert.AreEqual(ch.GetItems(), items);
@@ -45,10 +51,10 @@ namespace SpaceTraderTest
         [TestMethod]
         public void AddItems_Add3Items_ShouldIncreaseItemCountBy3()
         {
-            List<Item> items = new List<Item>{ 
-                new Item("A", 1, 1.00m), 
-                new Item("B", 2, 10.00m), 
-                new Item("C", 3, 20.00m)};
+            //List<Item> items = new List<Item>{ 
+            //    new Item("A", 1, 1.00m), 
+            //    new Item("B", 2, 10.00m), 
+            //    new Item("C", 3, 20.00m)};
             ch.AddItems(items);
 
             Assert.IsTrue(ch.GetItemCount() == 3); 
@@ -57,44 +63,25 @@ namespace SpaceTraderTest
         [TestMethod]
         public void RemoveItem_Remove1Item_ShouldReturnTrue()
         {
-            Item item = new Item("C", 3, 20.00m); 
-
-            List<Item> items = new List<Item>{ 
-                new Item("A", 1, 1.00m), 
-                new Item("B", 2, 10.00m), 
-                item };
             ch.AddItems(items);
-
-            Assert.IsTrue(ch.RemoveItem(item));
+            Assert.IsTrue(ch.RemoveItem(sampleItem));
         }
 
         [TestMethod]
         public void RemoveItem_RemoveSpecificItem_ShouldRemoveItemFromCargoHold()
         {
-            Item item = new Item("C", 3, 20.00m);
-
-            List<Item> items = new List<Item>{ 
-                new Item("A", 1, 1.00m), 
-                new Item("B", 2, 10.00m), 
-                item };
             ch.AddItems(items);
-            ch.RemoveItem(item);
+            ch.RemoveItem(sampleItem);
             
-            Boolean itemExists = ch.GetItems().Exists(x => x.Name == "C"); 
+            Boolean itemExists = ch.GetItems().Exists(x => x.Name == sampleItem.Name); 
             Assert.IsFalse(itemExists);
         }
 
         [TestMethod]
         public void RemoveItem_Remove1Item_ShouldDecreaseItemCountBy1()
         {
-            Item item = new Item("C", 3, 20.00m);
-
-            List<Item> items = new List<Item>{ 
-                new Item("A", 1, 1.00m), 
-                new Item("B", 2, 10.00m), 
-                item };
             ch.AddItems(items);
-            ch.RemoveItem(item);
+            ch.RemoveItem(sampleItem);
 
             Assert.IsTrue(ch.GetItemCount() == 2);
         }
@@ -102,9 +89,7 @@ namespace SpaceTraderTest
         [TestMethod]
         public void RemoveItem_WhenItemDoesNotExist_ShouldReturnFalse()
         {
-            Item item = new Item("C", 3, 20.00m);
-
-            Assert.IsFalse(ch.RemoveItem(item));
+            Assert.IsFalse(ch.RemoveItem(sampleItem));
         }
     }
 }

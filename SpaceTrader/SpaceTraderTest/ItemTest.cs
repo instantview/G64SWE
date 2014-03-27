@@ -28,5 +28,17 @@ namespace SpaceTraderTest
             Assert.IsTrue(item.Quantity == 1); 
             Assert.AreEqual(item.Price, 10.00m);
         }
+
+        //[TestMethod]
+        //public void ReduceStockLevel_Remove3FromStock_ShouldReduceQuantityBy3()
+        //{
+
+        //}
+
+        //[TestMethod]
+        //public void IncreaseStockLevel_Add3ToStock_ShouldIncreaseQuantityBy3()
+        //{
+
+        //}
     }
 }
