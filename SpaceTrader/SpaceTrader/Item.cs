@@ -36,14 +36,23 @@ namespace SpaceTrader
 
         }
 
-        public void Buy(int p1, int p2)
+        public void reduceStock( int p2)
         {
-            if (p2 < (int)PlantAmount[p1])
-            {
-                int a = (int)PlantAmount[p1] - p2;
-                PlantAmount.RemoveAt(p1);
-                PlantAmount.Insert(p1, a);
-            }
+         
+                int a = ((int)PlantAmount[0]) - p2;
+                PlantAmount[0] = a;
+              //  PlantAmount.RemoveAt(0);
+           
+                PlantAmount.Insert(0, a);
+        }
+        public void increaseStock(int p2)
+        {
+
+            int a = ((int)PlantAmount[0]) + p2;
+            PlantAmount[0] = a;
+            //  PlantAmount.RemoveAt(0);
+
+            PlantAmount.Insert(0, a);
         }
         public void SetMaxPrice(int p)
         {
@@ -57,12 +66,12 @@ namespace SpaceTrader
         public void SetPrice()
         {
             Random ro = new Random();
-            for (int i = 0; i < 5; i++)
+            for (int i = 1; i < 6; i++)
             {
 
                 PlantPrice.Add(ro.Next(MinPrice, MaxPrice));
-                PlantAmount.Add(ro.Next(10, 40));
-                System.Threading.Thread.Sleep(100);
+                PlantAmount.Add(ro.Next(10*i, 40*i));
+                //System.Threading.Thread.Sleep(1);
             }
         }
 
@@ -99,39 +108,4 @@ namespace SpaceTrader
         }
 
     }
-    /* Represents an item that can be traded */
-    //public class Item
-    //{
-    //    private String _name;
-    //    private int _quantity;
-    //    private Decimal _price;
-
-
-    //    public Item(String name, int quantity, Decimal price)
-    //    {
-    //        this._name = name;
-    //        this._price = price;
-    //        this._quantity = quantity; 
-    //    }
-
-
-    //    public String Name
-    //    {
-    //        get { return _name; }
-    //        set { _name = value; }
-    //    }
-        
-    //    public int Quantity
-    //    {
-    //        get { return _quantity; }
-    //        set { _quantity = value; }
-    //    }
-
-        
-    //    public Decimal Price
-    //    {
-    //        get { return _price; }
-    //        set { _price = value; }
-    //    }
-    //}
 }

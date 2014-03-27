@@ -9,6 +9,15 @@ namespace SpaceTrader
     {
         private List<Item> itemsList = new List<Item>();
         private Account account;
+        private CargoHold cargoHold;
+
+        
+
+        public CargoHold CargoHold
+        {
+            get { return cargoHold; }
+            set { cargoHold = value; }
+        }
 
         public Account Account
         {
@@ -20,6 +29,7 @@ namespace SpaceTrader
         {
             // TODO: Complete member initialization
             account = new Account();
+            cargoHold = new CargoHold(10); 
         }
 
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.marketGridView = new System.Windows.Forms.DataGridView();
             this.cargoHoldPanel = new System.Windows.Forms.Panel();
@@ -47,11 +48,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutStatusPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.planetNameLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.fundsLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.buyButton = new System.Windows.Forms.Button();
+            this.sellButton = new System.Windows.Forms.Button();
+            this.buyingQty = new System.Windows.Forms.TextBox();
+            this.sellingQty = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
             this.cargoHoldPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).BeginInit();
@@ -142,7 +147,6 @@
             // overheadPanel
             // 
             this.overheadPanel.BackColor = System.Drawing.Color.Black;
-            this.overheadPanel.Controls.Add(this.fuelBar);
             this.overheadPanel.Controls.Add(this.planetNameTxt);
             this.overheadPanel.Controls.Add(this.label2);
             this.overheadPanel.Controls.Add(this.textBox1);
@@ -154,9 +158,10 @@
             // 
             // fuelBar
             // 
-            this.fuelBar.Location = new System.Drawing.Point(285, 46);
+            this.fuelBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fuelBar.Location = new System.Drawing.Point(113, 34);
             this.fuelBar.Name = "fuelBar";
-            this.fuelBar.Size = new System.Drawing.Size(140, 23);
+            this.fuelBar.Size = new System.Drawing.Size(160, 25);
             this.fuelBar.TabIndex = 11;
             // 
             // planetNameTxt
@@ -261,12 +266,12 @@
             this.tableLayoutStatusPanel.ColumnCount = 2;
             this.tableLayoutStatusPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.01782F));
             this.tableLayoutStatusPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.98218F));
-            this.tableLayoutStatusPanel.Controls.Add(this.label6, 1, 0);
+            this.tableLayoutStatusPanel.Controls.Add(this.fuelBar, 1, 1);
+            this.tableLayoutStatusPanel.Controls.Add(this.planetNameLabel, 1, 0);
             this.tableLayoutStatusPanel.Controls.Add(this.label10, 0, 0);
             this.tableLayoutStatusPanel.Controls.Add(this.label5, 0, 1);
             this.tableLayoutStatusPanel.Controls.Add(this.label7, 0, 2);
             this.tableLayoutStatusPanel.Controls.Add(this.label9, 0, 3);
-            this.tableLayoutStatusPanel.Controls.Add(this.label8, 1, 1);
             this.tableLayoutStatusPanel.Controls.Add(this.fundsLabel, 1, 2);
             this.tableLayoutStatusPanel.Controls.Add(this.label12, 1, 3);
             this.tableLayoutStatusPanel.Location = new System.Drawing.Point(730, 30);
@@ -281,20 +286,20 @@
             this.tableLayoutStatusPanel.TabIndex = 10;
             this.tableLayoutStatusPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutStatusPanel_CellPaint);
             // 
-            // label6
+            // planetNameLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(113, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label6.Size = new System.Drawing.Size(160, 31);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Earth";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.planetNameLabel.AutoSize = true;
+            this.planetNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.planetNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.planetNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.planetNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.planetNameLabel.Location = new System.Drawing.Point(113, 0);
+            this.planetNameLabel.Name = "planetNameLabel";
+            this.planetNameLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.planetNameLabel.Size = new System.Drawing.Size(160, 31);
+            this.planetNameLabel.TabIndex = 20;
+            this.planetNameLabel.Text = "Earth";
+            this.planetNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
@@ -310,21 +315,6 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Location:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(113, 31);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label8.Size = new System.Drawing.Size(160, 31);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "200/200";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // fundsLabel
             // 
@@ -356,6 +346,46 @@
             this.label12.Text = "7 days";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // buyButton
+            // 
+            this.buyButton.Location = new System.Drawing.Point(258, 403);
+            this.buyButton.Name = "buyButton";
+            this.buyButton.Size = new System.Drawing.Size(75, 23);
+            this.buyButton.TabIndex = 2;
+            this.buyButton.Text = "Buy >>";
+            this.buyButton.UseVisualStyleBackColor = true;
+            this.buyButton.Click += new System.EventHandler(this.buyButton_Click);
+            // 
+            // sellButton
+            // 
+            this.sellButton.Location = new System.Drawing.Point(916, 408);
+            this.sellButton.Name = "sellButton";
+            this.sellButton.Size = new System.Drawing.Size(75, 23);
+            this.sellButton.TabIndex = 3;
+            this.sellButton.Text = "<< Sell ";
+            this.sellButton.UseVisualStyleBackColor = true;
+            this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
+            // 
+            // buyingQty
+            // 
+            this.buyingQty.Location = new System.Drawing.Point(344, 406);
+            this.buyingQty.Name = "buyingQty";
+            this.buyingQty.Size = new System.Drawing.Size(82, 20);
+            this.buyingQty.TabIndex = 20;
+            this.buyingQty.Text = "0";
+            // 
+            // sellingQty
+            // 
+            this.sellingQty.Location = new System.Drawing.Point(810, 408);
+            this.sellingQty.Name = "sellingQty";
+            this.sellingQty.Size = new System.Drawing.Size(100, 20);
+            this.sellingQty.TabIndex = 21;
+            this.sellingQty.Text = "0";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,6 +393,10 @@
             this.BackgroundImage = global::SpaceTraderApp.Properties.Resources.dashboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 562);
+            this.Controls.Add(this.sellingQty);
+            this.Controls.Add(this.buyingQty);
+            this.Controls.Add(this.buyButton);
+            this.Controls.Add(this.sellButton);
             this.Controls.Add(this.tableLayoutStatusPanel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.overheadPanel);
@@ -411,11 +445,15 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutStatusPanel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label planetNameLabel;
         private System.Windows.Forms.Label fundsLabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ProgressBar fuelBar;
+        private System.Windows.Forms.Button buyButton;
+        private System.Windows.Forms.Button sellButton;
+        private System.Windows.Forms.TextBox buyingQty;
+        private System.Windows.Forms.TextBox sellingQty;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Collections;
+using System.Threading; 
 using SpaceTrader; 
 
 
@@ -17,17 +18,19 @@ namespace SpaceTraderApp
     public partial class Form1 : Form
     {    
         //this for putting planets on board bander 17-3-2013
-       
+        public Planet currPlanet;
         private Graphics vplanetsBoard;
         public readonly string[] TableHeaders = { "Name", "Qty", "Price" };
         public readonly string[] EmptyHeaders = { "", "", "" };
         private List<Planet> planetsList = new List<Planet>();
+        Player player;
+        bool stopTimer;
       
         public Form1()
-        {
+        {  // Starting the game
             InitializeComponent();
             InitializeGridViews();
-
+    
             fuelBar.Value = 100; 
             // define plantes shape  bander 17-3-2013
             planetsList.Add(new Planet("Mercury", 25, 15, 80, 80));
@@ -37,12 +40,27 @@ namespace SpaceTraderApp
             planetsList.Add(new Planet("Neptune", 245, 30, 60, 65));
             vplanetsBoard = picturBoxPlanetsBoard.CreateGraphics();
 
-            Player player = new Player();
+            player = new Player();
             player.Account.Deposit(10000);
             this.fundsLabel.Text = player.Account.Balance.ToString();
 
             planetNameTxt.Text = "Flying ....";
+            PopulateGridView2(holdGridView, TableHeaders, player.CargoHold.GetItems());
             
+            Thread timerThread = new Thread(new ThreadStart(DoService));  
+            timerThread.IsBackground = true;  
+            
+            timerThread.Start();
+
+            private static void DoService()  
+            {  
+                while (true)  
+                {  
+                    // change prices 
+                    System.Threading.Thread.Sleep(1000);  
+                }  
+            }  
+
         }
 
         private void InitializeGridViews()
@@ -161,23 +179,24 @@ namespace SpaceTraderApp
         {
             if (planetsList[i].Gp.IsVisible(((MouseEventArgs)e).Location))
             {
-
+                currPlanet = planetsList[i];
                 picturBoxPlanetsBoard.Refresh();
                 vplanetsBoard.DrawEllipse(System.Drawing.Pens.Yellow, planetsList[i].getSize());
                 planetSelected = true;
                 planetNameTxt.Text = planetsList[i].name;
-                PopulateGridView2(marketGridView, TableHeaders, planetsList[i]);
-             
+                planetNameLabel.Text = planetsList[i].name; 
+                PopulateGridView2(marketGridView, TableHeaders, planetsList[i].ItemsList);
+                
                 if (fuelBar.Value > 0)
                 {
                     fuelBar.Value = fuelBar.Value - 10;
                 }
                 else
                 {
-                  //mark code  
-                    var form = new GameOver();
-                    form.Show();
+                    TheEnd gameover = new TheEnd();
 
+                 
+                    gameover.Show();
                 }
 
             }
@@ -191,7 +210,7 @@ namespace SpaceTraderApp
 
         }
 
-        private void PopulateGridView2(DataGridView gridView, Array columnHeaders, Planet planet)
+        private void PopulateGridView2(DataGridView gridView, Array columnHeaders, List<Item> item)
         {
             DataTable dt = new DataTable();
 
@@ -199,11 +218,13 @@ namespace SpaceTraderApp
             {
                 dt.Columns.Add(header);
             }
-            List<Item> item = planet.ItemsList;
-            marketLabel.Text = planet.name + " Market";
-            dt.Rows.Add(item[0].name, item[0].PlantPrice1[0].ToString(), item[0].PlantAmount1[0].ToString());
-            dt.Rows.Add(item[1].name, item[1].PlantPrice1[0].ToString(), item[1].PlantAmount1[0].ToString());
-            dt.Rows.Add(item[2].name, item[2].PlantPrice1[0].ToString(), item[2].PlantAmount1[0].ToString());
+            //List<Item> item = planet.ItemsList;
+           // marketLabel.Text = planet.name + " Market";
+            dt.Rows.Add(item[0].name, item[0].PlantAmount1[0].ToString(), item[0].PlantPrice1[0].ToString());
+            dt.Rows.Add(item[1].name, item[1].PlantAmount1[0].ToString(), item[1].PlantPrice1[0].ToString());
+            dt.Rows.Add(item[2].name, item[2].PlantAmount1[0].ToString(), item[2].PlantPrice1[0].ToString());
+
+     
 
 
             gridView.DataSource = dt;
@@ -217,6 +238,103 @@ namespace SpaceTraderApp
         private void tableLayoutStatusPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Color.Green), e.CellBounds);
+        }
+
+        private void buyButton_Click(object sender, EventArgs e)
+        {
+            string n = buyingQty.Text;
+            int quantity;
+            bool isNumeric = int.TryParse(n, out quantity);
+
+            int balance = player.Account.Balance; 
+            int itemQuantity = int.Parse(marketGridView.SelectedCells[1].Value.ToString());
+            int itemPrice = int.Parse(marketGridView.SelectedCells[2].Value.ToString());
+            string itemName = marketGridView.SelectedCells[0].Value.ToString();
+            
+
+            // check that item quantity provided by player is more than zero
+            if (isNumeric != true || quantity < 1)
+            {
+                MessageBox.Show("Invalid amount entered!");
+                return;
+            }
+
+            // check that player has enough funds 
+            if ((itemPrice * quantity) > player.Account.Balance)
+            {
+                MessageBox.Show("Not enough funds!");
+                return; 
+            }
+
+            // check that user entered less quantity than available on market 
+            if (quantity > itemQuantity)
+            {
+                MessageBox.Show("Not enough stock!");
+                return; 
+            }
+
+
+            
+            if ((player.CargoHold.GetCapacity() + quantity) > player.CargoHold.MaxSize)
+            {
+                MessageBox.Show("No more room!");
+                return;
+            }
+
+            // add items to cargo 
+            
+            // remove items from planet 
+            currPlanet.ItemsList[marketGridView.CurrentCell.RowIndex].reduceStock(quantity);
+            player.CargoHold.ItemList[marketGridView.CurrentCell.RowIndex].increaseStock(quantity);
+            
+            PopulateGridView2(marketGridView, TableHeaders, currPlanet.ItemsList);
+            PopulateGridView2(holdGridView, TableHeaders, player.CargoHold.ItemList);
+            player.Account.MoneyOut(itemPrice * quantity);
+            fundsLabel.Text = player.Account.Balance.ToString(); 
+        }
+
+
+        private void sellButton_Click(object sender, EventArgs e)
+        {
+            string n = sellingQty.Text;
+            int sellQuantity;
+            bool isNumeric = int.TryParse(n, out sellQuantity);
+
+            int balance = player.Account.Balance;
+            int itemQuantity = int.Parse(holdGridView.SelectedCells[1].Value.ToString());
+            int itemPrice = int.Parse(marketGridView.SelectedCells[2].Value.ToString());
+            string itemName = holdGridView.SelectedCells[0].Value.ToString();
+          
+
+
+            // check that item quantity provided by player is more than zero
+            if (isNumeric != true || sellQuantity < 1)
+            {
+                MessageBox.Show("Invalid amount entered!");
+                return;
+            }
+
+            // check that user entered less quantity than available on market 
+            if (sellQuantity > itemQuantity)
+            {
+                MessageBox.Show("Not enough stock!");
+                return;
+            }
+
+
+            // remove items from planet 
+            currPlanet.ItemsList[holdGridView.CurrentCell.RowIndex].increaseStock(sellQuantity);
+            player.CargoHold.ItemList[holdGridView.CurrentCell.RowIndex].reduceStock(sellQuantity);
+
+            PopulateGridView2(marketGridView, TableHeaders, currPlanet.ItemsList);
+            PopulateGridView2(holdGridView, TableHeaders, player.CargoHold.ItemList);
+            player.Account.Deposit(itemPrice * sellQuantity);
+            fundsLabel.Text = player.Account.Balance.ToString(); 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
             
         }
