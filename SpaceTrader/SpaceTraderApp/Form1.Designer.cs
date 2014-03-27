@@ -37,19 +37,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picturBoxPlanetsBoard = new System.Windows.Forms.PictureBox();
             this.overheadPanel = new System.Windows.Forms.Panel();
+            this.fuelBar = new System.Windows.Forms.ProgressBar();
             this.planetNameTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutStatusPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.fundsLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
             this.cargoHoldPanel.SuspendLayout();
@@ -141,7 +142,7 @@
             // overheadPanel
             // 
             this.overheadPanel.BackColor = System.Drawing.Color.Black;
-            this.overheadPanel.Controls.Add(this.label4);
+            this.overheadPanel.Controls.Add(this.fuelBar);
             this.overheadPanel.Controls.Add(this.planetNameTxt);
             this.overheadPanel.Controls.Add(this.label2);
             this.overheadPanel.Controls.Add(this.textBox1);
@@ -150,6 +151,13 @@
             this.overheadPanel.Name = "overheadPanel";
             this.overheadPanel.Size = new System.Drawing.Size(469, 124);
             this.overheadPanel.TabIndex = 9;
+            // 
+            // fuelBar
+            // 
+            this.fuelBar.Location = new System.Drawing.Point(285, 46);
+            this.fuelBar.Name = "fuelBar";
+            this.fuelBar.Size = new System.Drawing.Size(140, 23);
+            this.fuelBar.TabIndex = 11;
             // 
             // planetNameTxt
             // 
@@ -188,6 +196,19 @@
             this.label3.Size = new System.Drawing.Size(110, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Market status:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(78, 243);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.label4.Size = new System.Drawing.Size(101, 23);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Location:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -246,7 +267,7 @@
             this.tableLayoutStatusPanel.Controls.Add(this.label7, 0, 2);
             this.tableLayoutStatusPanel.Controls.Add(this.label9, 0, 3);
             this.tableLayoutStatusPanel.Controls.Add(this.label8, 1, 1);
-            this.tableLayoutStatusPanel.Controls.Add(this.label11, 1, 2);
+            this.tableLayoutStatusPanel.Controls.Add(this.fundsLabel, 1, 2);
             this.tableLayoutStatusPanel.Controls.Add(this.label12, 1, 3);
             this.tableLayoutStatusPanel.Location = new System.Drawing.Point(730, 30);
             this.tableLayoutStatusPanel.Name = "tableLayoutStatusPanel";
@@ -259,34 +280,6 @@
             this.tableLayoutStatusPanel.Size = new System.Drawing.Size(276, 124);
             this.tableLayoutStatusPanel.TabIndex = 10;
             this.tableLayoutStatusPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutStatusPanel_CellPaint);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label10.Size = new System.Drawing.Size(104, 31);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Location:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(167, 49);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label4.Size = new System.Drawing.Size(101, 23);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Location:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -303,6 +296,21 @@
             this.label6.Text = "Earth";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.label10.Size = new System.Drawing.Size(104, 31);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Location:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -318,20 +326,20 @@
             this.label8.Text = "200/200";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // fundsLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(113, 62);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label11.Size = new System.Drawing.Size(160, 31);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "$5,000";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fundsLabel.AutoSize = true;
+            this.fundsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.fundsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fundsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fundsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.fundsLabel.Location = new System.Drawing.Point(113, 62);
+            this.fundsLabel.Name = "fundsLabel";
+            this.fundsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.fundsLabel.Size = new System.Drawing.Size(160, 31);
+            this.fundsLabel.TabIndex = 22;
+            this.fundsLabel.Text = "$5,000";
+            this.fundsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -356,6 +364,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 562);
             this.Controls.Add(this.tableLayoutStatusPanel);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.overheadPanel);
             this.Controls.Add(this.picturBoxPlanetsBoard);
             this.Controls.Add(this.label1);
@@ -404,8 +413,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label fundsLabel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ProgressBar fuelBar;
     }
 }
 

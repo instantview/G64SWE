@@ -28,6 +28,7 @@ namespace SpaceTraderApp
             InitializeComponent();
             InitializeGridViews();
 
+            fuelBar.Value = 100; 
             // define plantes shape  bander 17-3-2013
             planetsList.Add(new Planet("Mercury", 25, 15, 80, 80));
             planetsList.Add(new Planet("Venus", 130, 65, 70, 70));
@@ -35,14 +36,21 @@ namespace SpaceTraderApp
             planetsList.Add(new Planet("Jupiter", 220, 115, 60, 65));
             planetsList.Add(new Planet("Neptune", 245, 30, 60, 65));
             vplanetsBoard = picturBoxPlanetsBoard.CreateGraphics();
+
+            Player player = new Player();
+            player.Account.Deposit(10000);
+            this.fundsLabel.Text = player.Account.Balance.ToString();
+
+            planetNameTxt.Text = "Flying ....";
+            
         }
 
         private void InitializeGridViews()
         {
             List<Item> items = new List<Item> { 
-                new Item("Pencil Sharpener Here", 3, 200), 
-                new Item("Paper", 30, 2000), 
-                new Item("Box", 300, 20000), 
+                new Item("Pencil Sharpener Here", 300, 20), 
+                new Item("Paper", 20000, 2000), 
+                new Item("Box", 300, 20), 
                 new Item("Book", 3000, 20)
             };
 
@@ -158,6 +166,15 @@ namespace SpaceTraderApp
                 vplanetsBoard.DrawEllipse(System.Drawing.Pens.Yellow, planetsList[i].getSize());
                 planetSelected = true;
                 planetNameTxt.Text = planetsList[i].name;
+                PopulateGridView2(marketGridView, TableHeaders, planetsList[i]);
+                if (fuelBar.Value > 0)
+                {
+                    fuelBar.Value = fuelBar.Value - 10;
+                }
+                else
+                {
+                    
+                }
 
             }
         }
@@ -168,6 +185,24 @@ namespace SpaceTraderApp
                planetNameTxt.Text = null;
                }
 
+        }
+
+        private void PopulateGridView2(DataGridView gridView, Array columnHeaders, Planet planet)
+        {
+            DataTable dt = new DataTable();
+
+            foreach (String header in columnHeaders)
+            {
+                dt.Columns.Add(header);
+            }
+            List<Item> item = planet.ItemsList;
+            marketLabel.Text = planet.name + " Market";
+            dt.Rows.Add(item[0].name, item[0].PlantPrice1[0].ToString(), item[0].PlantAmount1[0].ToString());
+            dt.Rows.Add(item[1].name, item[1].PlantPrice1[0].ToString(), item[1].PlantAmount1[0].ToString());
+            dt.Rows.Add(item[2].name, item[2].PlantPrice1[0].ToString(), item[2].PlantAmount1[0].ToString());
+
+
+            gridView.DataSource = dt;
         }
 
         private void setLabelBorderColor(object sender, PaintEventArgs e)
