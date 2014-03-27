@@ -167,13 +167,17 @@ namespace SpaceTraderApp
                 planetSelected = true;
                 planetNameTxt.Text = planetsList[i].name;
                 PopulateGridView2(marketGridView, TableHeaders, planetsList[i]);
+             
                 if (fuelBar.Value > 0)
                 {
                     fuelBar.Value = fuelBar.Value - 10;
                 }
                 else
                 {
-                    
+                  //mark code  
+                    var form = new GameOver();
+                    form.Show();
+
                 }
 
             }
