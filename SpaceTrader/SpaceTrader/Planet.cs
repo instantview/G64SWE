@@ -11,6 +11,13 @@ namespace SpaceTrader
     {
         private GraphicsPath gp = new GraphicsPath();
         private List<Item> itemsList = new List<Item>();
+        private int _status;
+
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
 
         public List<Item> ItemsList
         {
@@ -38,6 +45,7 @@ namespace SpaceTrader
             name = vname;
             x = vx;
             y = vy;
+            _status = 3;
             height = vheight;
             width = vwidth;
             setGraphicsPath();

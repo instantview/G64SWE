@@ -38,11 +38,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picturBoxPlanetsBoard = new System.Windows.Forms.PictureBox();
             this.overheadPanel = new System.Windows.Forms.Panel();
-            this.fuelBar = new System.Windows.Forms.ProgressBar();
             this.planetNameTxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.fuelBar = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +55,9 @@
             this.buyingQty = new System.Windows.Forms.TextBox();
             this.sellingQty = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.newsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
             this.cargoHoldPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).BeginInit();
@@ -147,14 +148,27 @@
             // overheadPanel
             // 
             this.overheadPanel.BackColor = System.Drawing.Color.Black;
-            this.overheadPanel.Controls.Add(this.planetNameTxt);
-            this.overheadPanel.Controls.Add(this.label2);
-            this.overheadPanel.Controls.Add(this.textBox1);
-            this.overheadPanel.Controls.Add(this.label3);
+            this.overheadPanel.Controls.Add(this.newsLabel);
             this.overheadPanel.Location = new System.Drawing.Point(258, 30);
             this.overheadPanel.Name = "overheadPanel";
             this.overheadPanel.Size = new System.Drawing.Size(469, 124);
             this.overheadPanel.TabIndex = 9;
+            // 
+            // planetNameTxt
+            // 
+            this.planetNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.planetNameTxt.Location = new System.Drawing.Point(47, 92);
+            this.planetNameTxt.Name = "planetNameTxt";
+            this.planetNameTxt.Size = new System.Drawing.Size(132, 26);
+            this.planetNameTxt.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(47, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 26);
+            this.textBox1.TabIndex = 6;
             // 
             // fuelBar
             // 
@@ -164,50 +178,12 @@
             this.fuelBar.Size = new System.Drawing.Size(160, 25);
             this.fuelBar.TabIndex = 11;
             // 
-            // planetNameTxt
-            // 
-            this.planetNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.planetNameTxt.Location = new System.Drawing.Point(119, 43);
-            this.planetNameTxt.Name = "planetNameTxt";
-            this.planetNameTxt.Size = new System.Drawing.Size(132, 26);
-            this.planetNameTxt.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkGray;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Planet Name:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(119, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 26);
-            this.textBox1.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.DarkGray;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Market status:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(78, 243);
+            this.label4.Location = new System.Drawing.Point(91, 226);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
             this.label4.Size = new System.Drawing.Size(101, 23);
@@ -386,6 +362,40 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkGray;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(50, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Planet Name:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.DarkGray;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(44, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Market status:";
+            // 
+            // newsLabel
+            // 
+            this.newsLabel.AutoSize = true;
+            this.newsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.newsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.newsLabel.Location = new System.Drawing.Point(3, 4);
+            this.newsLabel.Name = "newsLabel";
+            this.newsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.newsLabel.Size = new System.Drawing.Size(50, 23);
+            this.newsLabel.TabIndex = 20;
+            this.newsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,9 +403,13 @@
             this.BackgroundImage = global::SpaceTraderApp.Properties.Resources.dashboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 562);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.planetNameTxt);
             this.Controls.Add(this.sellingQty);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buyingQty);
             this.Controls.Add(this.buyButton);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.sellButton);
             this.Controls.Add(this.tableLayoutStatusPanel);
             this.Controls.Add(this.label4);
@@ -435,9 +449,7 @@
         private System.Windows.Forms.DataGridView holdGridView;
         private System.Windows.Forms.PictureBox picturBoxPlanetsBoard;
         private System.Windows.Forms.Panel overheadPanel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox planetNameTxt;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
@@ -454,6 +466,9 @@
         private System.Windows.Forms.TextBox buyingQty;
         private System.Windows.Forms.TextBox sellingQty;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label newsLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

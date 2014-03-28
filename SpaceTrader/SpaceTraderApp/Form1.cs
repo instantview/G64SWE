@@ -24,8 +24,8 @@ namespace SpaceTraderApp
         public readonly string[] EmptyHeaders = { "", "", "" };
         private List<Planet> planetsList = new List<Planet>();
         Player player;
-        bool stopTimer;
-      
+ 
+
         public Form1()
         {  // Starting the game
             InitializeComponent();
@@ -38,29 +38,45 @@ namespace SpaceTraderApp
             planetsList.Add(new Planet("Mars", 20, 125, 60, 65));
             planetsList.Add(new Planet("Jupiter", 220, 115, 60, 65));
             planetsList.Add(new Planet("Neptune", 245, 30, 60, 65));
+            currPlanet = planetsList[1];
+            PopulateGridView2(marketGridView, TableHeaders, planetsList[1].ItemsList);
+
             vplanetsBoard = picturBoxPlanetsBoard.CreateGraphics();
 
             player = new Player();
             player.Account.Deposit(10000);
             this.fundsLabel.Text = player.Account.Balance.ToString();
-
-            planetNameTxt.Text = "Flying ....";
+            planetNameLabel.Text = currPlanet.name; 
             PopulateGridView2(holdGridView, TableHeaders, player.CargoHold.GetItems());
-            
-            Thread timerThread = new Thread(new ThreadStart(DoService));  
-            timerThread.IsBackground = true;  
-            
-            timerThread.Start();
 
-            private static void DoService()  
-            {  
-                while (true)  
-                {  
-                    // change prices 
-                    System.Threading.Thread.Sleep(1000);  
-                }  
-            }  
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 20000;
+            aTimer.Enabled = true;
+        }
 
+        private void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
+        {
+            // change time 
+            Random ro = new Random();
+            int rand = ro.Next(0, 4);
+
+            // after every 20 seconds, either increase or decrease prices on some planet and display alert
+            // randomly choose planet 
+            Planet eventPlanet = planetsList[rand];
+            // change planet prices 
+            
+            int oldStatus = eventPlanet.Status;
+
+            eventPlanet.Status = rand;
+
+            // alert player 
+            if (oldStatus > rand)
+                MessageBox.Show("Prices in " + eventPlanet.name + "have decreased!"); 
+                //newsLabel.Text = "Prices in " + eventPlanet.name + "have decreased!"; 
+            else
+                MessageBox.Show("Prices in " + eventPlanet.name + "have increased!");
+                //newsLabel.Text = "Prices in " + eventPlanet.name + "have increased!";    
         }
 
         private void InitializeGridViews()
@@ -220,9 +236,9 @@ namespace SpaceTraderApp
             }
             //List<Item> item = planet.ItemsList;
            // marketLabel.Text = planet.name + " Market";
-            dt.Rows.Add(item[0].name, item[0].PlantAmount1[0].ToString(), item[0].PlantPrice1[0].ToString());
-            dt.Rows.Add(item[1].name, item[1].PlantAmount1[0].ToString(), item[1].PlantPrice1[0].ToString());
-            dt.Rows.Add(item[2].name, item[2].PlantAmount1[0].ToString(), item[2].PlantPrice1[0].ToString());
+            dt.Rows.Add(item[0].name, item[0].PlantAmount1[0].ToString(), item[0].PlantPrice1[currPlanet.Status].ToString());
+            dt.Rows.Add(item[1].name, item[1].PlantAmount1[0].ToString(), item[1].PlantPrice1[currPlanet.Status].ToString());
+            dt.Rows.Add(item[2].name, item[2].PlantAmount1[0].ToString(), item[2].PlantPrice1[currPlanet.Status].ToString());
 
      
 
