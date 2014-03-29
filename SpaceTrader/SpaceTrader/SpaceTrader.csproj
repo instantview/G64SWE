@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="CargoHold.cs" />
+    <Compile Include="DatabaseAccessMock.cs" />
+    <Compile Include="DatabaseRepositoryClass.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Player.cs" />
