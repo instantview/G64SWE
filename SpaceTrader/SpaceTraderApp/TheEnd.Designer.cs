@@ -39,6 +39,7 @@
             this.ClientSize = new System.Drawing.Size(668, 491);
             this.Name = "TheEnd";
             this.Text = "Game Over";
+            this.Load += new System.EventHandler(this.TheEnd_Load);
             this.ResumeLayout(false);
 
         }

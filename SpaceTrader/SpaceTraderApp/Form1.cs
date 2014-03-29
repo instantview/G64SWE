@@ -217,8 +217,10 @@ namespace SpaceTraderApp
                 }
                 else
                 {
+
                     TheEnd gameover = new TheEnd();
-                    gameover.Show();
+                    gameover.ShowDialog();
+                    Application.Exit();
                 }
 
             }

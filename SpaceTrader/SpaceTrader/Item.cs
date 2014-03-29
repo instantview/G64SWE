@@ -87,7 +87,7 @@ namespace SpaceTrader
                 {
                     _prices.Add(ro.Next(MinPrice, MaxPrice));
                     _quantities.Add(ro.Next(10 * i, 40 * i));
-                    //System.Threading.Thread.Sleep(1);
+                    System.Threading.Thread.Sleep(1);
                 }
             }
 
