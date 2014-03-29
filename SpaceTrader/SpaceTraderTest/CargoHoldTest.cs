@@ -91,5 +91,11 @@ namespace SpaceTraderTest
         {
             Assert.IsFalse(ch.RemoveItem(sampleItem));
         }
+
+        [TestMethod]
+        public void GetItemQuantity_WhenItemsWithQuantityArePresent_ReturnsTotalQuantityOfItemsInCargoHold()
+        {
+
+        }
     }
 }

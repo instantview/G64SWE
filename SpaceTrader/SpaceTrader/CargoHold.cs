@@ -8,6 +8,7 @@ namespace SpaceTrader
     public class CargoHold
     {
         private int _maxSize;
+        private List<Item> _items;
 
         public int MaxSize
         {
@@ -15,8 +16,6 @@ namespace SpaceTrader
             set { _maxSize = value; }
         }
         
-        private List<Item> _items;
-
         public List<Item> ItemList
         {
             get { return _items; }
@@ -28,7 +27,12 @@ namespace SpaceTrader
             _items = new List<Item>();
             _maxSize = size;
 
-            addItems(); 
+            AddItems(); 
+        }
+
+        public string Status()
+        {
+            return string.Format("{0}/{1}", GetItemQuantity(), MaxSize);
         }
 
         public int GetItemCount()
@@ -44,52 +48,19 @@ namespace SpaceTrader
                 return _items;
         }
 
-        /* Add an item to the cargo hold. */
-        //public void AddItems(List<Item> items)
-        //{
-        //    _items = new List<Item>();
-
-        //    for (int i = 0; i < items.Count; i++)
-        //    {
-        //        _items.Add(items[i]);
-        //    }
-        //}
-
-      /*  public void AddItems(string name, int quantity)
-        {
-            Item item = _items.Find(x => x.Name == name);
-            item.Quantity += quantity; 
-        } /*
-
-
-        /* Remove an item from the cargo hold. Returns true if successful */
-      /*  public bool RemoveItem(Item item)
-        {
-            if (_items.Exists(x => x.Name == item.Name))
-            {
-                _items.Remove(item);
-                return true;
-            }
-            else
-                return false;
-        }
-        */
-        public void addItems()
+        public void AddItems()
         {   
-      
-            _items.Add(new Item("Gold", 0, 0));
-            _items.Add(new Item("Silver", 0, 0));
-            _items.Add(new Item("Copper", 0, 0));
-       
-
+            _items.Add(new Item("Gold", 0, 0, true));
+            _items.Add(new Item("Silver", 0, 0, true));
+            _items.Add(new Item("Copper", 0, 0, true));
         }
 
-        public int GetCapacity()
+        public int GetItemQuantity()
         {
             int total = 0; 
-            for (int i = 0; i < _items.Count; i++)
+            foreach (Item item in _items)
             {
-                total += _items[i].Quantity; 
+                total += (int) item.Quantities[0]; 
             }
             return total; 
         }
