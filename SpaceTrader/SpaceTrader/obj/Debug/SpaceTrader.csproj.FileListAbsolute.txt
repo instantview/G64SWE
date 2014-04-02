@@ -1,0 +1,5 @@
+C:\Users\markhabgood\Documents\GitHub\G64SWE\SpaceTrader\SpaceTrader\bin\Debug\SpaceTrader.dll
+C:\Users\markhabgood\Documents\GitHub\G64SWE\SpaceTrader\SpaceTrader\bin\Debug\SpaceTrader.pdb
+C:\Users\markhabgood\Documents\GitHub\G64SWE\SpaceTrader\SpaceTrader\obj\Debug\SpaceTrader.csprojResolveAssemblyReference.cache
+C:\Users\markhabgood\Documents\GitHub\G64SWE\SpaceTrader\SpaceTrader\obj\Debug\SpaceTrader.dll
+C:\Users\markhabgood\Documents\GitHub\G64SWE\SpaceTrader\SpaceTrader\obj\Debug\SpaceTrader.pdb
