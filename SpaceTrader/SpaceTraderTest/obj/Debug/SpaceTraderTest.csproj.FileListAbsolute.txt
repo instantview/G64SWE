@@ -1,0 +1,7 @@
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\bin\Debug\SpaceTraderTest.dll
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\bin\Debug\SpaceTraderTest.pdb
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\bin\Debug\SpaceTrader.dll
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\bin\Debug\SpaceTrader.pdb
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\obj\Debug\SpaceTraderTest.csprojResolveAssemblyReference.cache
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\obj\Debug\SpaceTraderTest.dll
+C:\Users\Dumbo\Documents\GitHub\G64SWE\SpaceTrader\SpaceTraderTest\obj\Debug\SpaceTraderTest.pdb

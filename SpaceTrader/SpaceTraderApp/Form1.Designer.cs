@@ -54,7 +54,7 @@
             this.sellingQty = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.highScoresBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
@@ -366,18 +366,19 @@
             this.button1.Text = "Shopping";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // highScoresBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(3, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "High Scores";
-            this.button2.UseVisualStyleBackColor = false;
+            this.highScoresBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.highScoresBtn.FlatAppearance.BorderSize = 0;
+            this.highScoresBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.highScoresBtn.ForeColor = System.Drawing.Color.Black;
+            this.highScoresBtn.Location = new System.Drawing.Point(3, 30);
+            this.highScoresBtn.Name = "highScoresBtn";
+            this.highScoresBtn.Size = new System.Drawing.Size(75, 23);
+            this.highScoresBtn.TabIndex = 23;
+            this.highScoresBtn.Text = "High Scores";
+            this.highScoresBtn.UseVisualStyleBackColor = false;
+            this.highScoresBtn.Click += new System.EventHandler(this.highScoresBtn_Click);
             // 
             // button3
             // 
@@ -412,7 +413,7 @@
             this.controlPanel.Controls.Add(this.button4);
             this.controlPanel.Controls.Add(this.button1);
             this.controlPanel.Controls.Add(this.button3);
-            this.controlPanel.Controls.Add(this.button2);
+            this.controlPanel.Controls.Add(this.highScoresBtn);
             this.controlPanel.Location = new System.Drawing.Point(642, 34);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Size = new System.Drawing.Size(85, 120);
@@ -484,7 +485,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label newsLabel;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button highScoresBtn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel controlPanel;
