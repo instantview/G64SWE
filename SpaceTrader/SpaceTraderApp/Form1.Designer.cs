@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picturBoxPlanetsBoard = new System.Windows.Forms.PictureBox();
             this.overheadPanel = new System.Windows.Forms.Panel();
+            this.newsLabel = new System.Windows.Forms.Label();
             this.planetNameTxt = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.fuelBar = new System.Windows.Forms.ProgressBar();
@@ -50,14 +51,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.fundsLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.buyButton = new System.Windows.Forms.Button();
-            this.sellButton = new System.Windows.Forms.Button();
-            this.buyingQty = new System.Windows.Forms.TextBox();
-            this.sellingQty = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.newsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
             this.cargoHoldPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).BeginInit();
@@ -153,6 +149,18 @@
             this.overheadPanel.Name = "overheadPanel";
             this.overheadPanel.Size = new System.Drawing.Size(469, 124);
             this.overheadPanel.TabIndex = 9;
+            // 
+            // newsLabel
+            // 
+            this.newsLabel.AutoSize = true;
+            this.newsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.newsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.newsLabel.Location = new System.Drawing.Point(3, 4);
+            this.newsLabel.Name = "newsLabel";
+            this.newsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.newsLabel.Size = new System.Drawing.Size(50, 23);
+            this.newsLabel.TabIndex = 20;
+            this.newsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // planetNameTxt
             // 
@@ -322,42 +330,6 @@
             this.label12.Text = "7 days";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // buyButton
-            // 
-            this.buyButton.Location = new System.Drawing.Point(258, 403);
-            this.buyButton.Name = "buyButton";
-            this.buyButton.Size = new System.Drawing.Size(75, 23);
-            this.buyButton.TabIndex = 2;
-            this.buyButton.Text = "Buy >>";
-            this.buyButton.UseVisualStyleBackColor = true;
-            this.buyButton.Click += new System.EventHandler(this.buyButton_Click);
-            // 
-            // sellButton
-            // 
-            this.sellButton.Location = new System.Drawing.Point(916, 408);
-            this.sellButton.Name = "sellButton";
-            this.sellButton.Size = new System.Drawing.Size(75, 23);
-            this.sellButton.TabIndex = 3;
-            this.sellButton.Text = "<< Sell ";
-            this.sellButton.UseVisualStyleBackColor = true;
-            this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
-            // 
-            // buyingQty
-            // 
-            this.buyingQty.Location = new System.Drawing.Point(344, 406);
-            this.buyingQty.Name = "buyingQty";
-            this.buyingQty.Size = new System.Drawing.Size(82, 20);
-            this.buyingQty.TabIndex = 20;
-            this.buyingQty.Text = "0";
-            // 
-            // sellingQty
-            // 
-            this.sellingQty.Location = new System.Drawing.Point(810, 408);
-            this.sellingQty.Name = "sellingQty";
-            this.sellingQty.Size = new System.Drawing.Size(100, 20);
-            this.sellingQty.TabIndex = 21;
-            this.sellingQty.Text = "0";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -384,18 +356,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Market status:";
             // 
-            // newsLabel
-            // 
-            this.newsLabel.AutoSize = true;
-            this.newsLabel.BackColor = System.Drawing.Color.Transparent;
-            this.newsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.newsLabel.Location = new System.Drawing.Point(3, 4);
-            this.newsLabel.Name = "newsLabel";
-            this.newsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.newsLabel.Size = new System.Drawing.Size(50, 23);
-            this.newsLabel.TabIndex = 20;
-            this.newsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,12 +365,8 @@
             this.ClientSize = new System.Drawing.Size(1184, 562);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.planetNameTxt);
-            this.Controls.Add(this.sellingQty);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buyingQty);
-            this.Controls.Add(this.buyButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.sellButton);
             this.Controls.Add(this.tableLayoutStatusPanel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.overheadPanel);
@@ -461,10 +417,6 @@
         private System.Windows.Forms.Label fundsLabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ProgressBar fuelBar;
-        private System.Windows.Forms.Button buyButton;
-        private System.Windows.Forms.Button sellButton;
-        private System.Windows.Forms.TextBox buyingQty;
-        private System.Windows.Forms.TextBox sellingQty;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label newsLabel;
         private System.Windows.Forms.Label label2;
