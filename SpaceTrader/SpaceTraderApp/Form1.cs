@@ -64,8 +64,7 @@ namespace SpaceTraderApp
             // Set up price changing 
             System.Timers.Timer aTimer = new System.Timers.Timer();
             aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
-            //aTimer.Interval = 20000;
-            aTimer.Interval = 5000;
+            aTimer.Interval = 20000;
             aTimer.Enabled = true;
         }
 
@@ -217,6 +216,12 @@ namespace SpaceTraderApp
             return amount.ToString("c0", System.Globalization.CultureInfo.CreateSpecificCulture("en-GB"));
         }
 
+        private void ClearInputBoxes()
+        {
+            sellingQty.Text = "0";
+            buyingQty.Text = "0"; 
+        }
+
         /* 
          * Events 
          */
@@ -236,8 +241,9 @@ namespace SpaceTraderApp
                     if (fuelBar.Value > 0)
                     {
                         fuelBar.Value = fuelBar.Value - 10;
-                        //PlaySound(SoundType.SpaceshipFlight);
-                        //System.Threading.Thread.Sleep(3800);
+                        PlaySound(SoundType.SpaceshipFlight);
+                        System.Threading.Thread.Sleep(3800);
+                        ClearInputBoxes(); 
                     }
                     else
                     {
@@ -315,7 +321,8 @@ namespace SpaceTraderApp
             player.Account.MoneyOut(itemPrice * quantity);
             fundsLabel.Text = InPounds(player.Account.Balance);
             holdStatsLabel.Text = player.CargoHold.Status();
-            PlaySound(SoundType.Transaction); 
+            PlaySound(SoundType.Transaction);
+            ClearInputBoxes(); 
         }
 
         private void sellButton_Click(object sender, EventArgs e)
@@ -353,7 +360,8 @@ namespace SpaceTraderApp
             player.Account.Deposit(itemPrice * sellQuantity);
             fundsLabel.Text = InPounds(player.Account.Balance);
             holdStatsLabel.Text = player.CargoHold.Status();
-            PlaySound(SoundType.Transaction); 
+            PlaySound(SoundType.Transaction);
+            ClearInputBoxes(); 
         }
         
         private void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)

@@ -49,7 +49,7 @@ namespace SpaceTrader
         {
             int a = ((int)_quantities[0]) - p2;
             _quantities[0] = a;
-            //  _quantities.RemoveAt(0);   
+            _quantities.RemoveAt(0);   
             _quantities.Insert(0, a);
         }
 
@@ -57,7 +57,7 @@ namespace SpaceTrader
         {
             int a = ((int)_quantities[0]) + p2;
             _quantities[0] = a;
-            //  _quantities.RemoveAt(0);
+            _quantities.RemoveAt(0);
             _quantities.Insert(0, a);
         }
 
