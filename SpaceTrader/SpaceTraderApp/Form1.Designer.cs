@@ -53,6 +53,11 @@
             this.buyingQty = new System.Windows.Forms.TextBox();
             this.sellingQty = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.controlPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
             this.holdPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).BeginInit();
@@ -60,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picturBoxPlanetsBoard)).BeginInit();
             this.overheadPanel.SuspendLayout();
             this.tableLayoutStatusPanel.SuspendLayout();
+            this.controlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // marketGridView
@@ -146,7 +152,7 @@
             this.overheadPanel.Controls.Add(this.newsLabel);
             this.overheadPanel.Location = new System.Drawing.Point(258, 30);
             this.overheadPanel.Name = "overheadPanel";
-            this.overheadPanel.Size = new System.Drawing.Size(469, 124);
+            this.overheadPanel.Size = new System.Drawing.Size(383, 124);
             this.overheadPanel.TabIndex = 9;
             // 
             // newsLabel
@@ -154,7 +160,7 @@
             this.newsLabel.AutoSize = true;
             this.newsLabel.BackColor = System.Drawing.Color.Transparent;
             this.newsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.newsLabel.Location = new System.Drawing.Point(3, 4);
+            this.newsLabel.Location = new System.Drawing.Point(11, 31);
             this.newsLabel.Name = "newsLabel";
             this.newsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
             this.newsLabel.Size = new System.Drawing.Size(50, 23);
@@ -282,7 +288,6 @@
             this.fundsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
             this.fundsLabel.Size = new System.Drawing.Size(160, 31);
             this.fundsLabel.TabIndex = 22;
-            this.fundsLabel.Text = "$5,000";
             this.fundsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // holdStatsLabel
@@ -301,39 +306,117 @@
             // 
             // buyButton
             // 
+            this.buyButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buyButton.FlatAppearance.BorderSize = 0;
+            this.buyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buyButton.Location = new System.Drawing.Point(244, 386);
             this.buyButton.Name = "buyButton";
             this.buyButton.Size = new System.Drawing.Size(75, 23);
             this.buyButton.TabIndex = 2;
             this.buyButton.Text = "Buy >>";
-            this.buyButton.UseVisualStyleBackColor = true;
+            this.buyButton.UseVisualStyleBackColor = false;
             this.buyButton.Click += new System.EventHandler(this.buyButton_Click);
             // 
             // sellButton
             // 
+            this.sellButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sellButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.sellButton.FlatAppearance.BorderSize = 0;
+            this.sellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sellButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.sellButton.Location = new System.Drawing.Point(868, 392);
             this.sellButton.Name = "sellButton";
             this.sellButton.Size = new System.Drawing.Size(75, 23);
             this.sellButton.TabIndex = 3;
             this.sellButton.Text = "<< Sell ";
-            this.sellButton.UseVisualStyleBackColor = true;
+            this.sellButton.UseVisualStyleBackColor = false;
             this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
             // 
             // buyingQty
             // 
+            this.buyingQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.buyingQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyingQty.Location = new System.Drawing.Point(388, 389);
             this.buyingQty.Name = "buyingQty";
-            this.buyingQty.Size = new System.Drawing.Size(53, 20);
+            this.buyingQty.Size = new System.Drawing.Size(53, 16);
             this.buyingQty.TabIndex = 20;
             this.buyingQty.Text = "0";
             // 
             // sellingQty
             // 
+            this.sellingQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sellingQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sellingQty.Location = new System.Drawing.Point(800, 394);
             this.sellingQty.Name = "sellingQty";
-            this.sellingQty.Size = new System.Drawing.Size(53, 20);
+            this.sellingQty.Size = new System.Drawing.Size(53, 16);
             this.sellingQty.TabIndex = 21;
             this.sellingQty.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Shopping";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(3, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "High Scores";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(3, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Save/Load";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(3, 86);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "New / Quit";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // controlPanel
+            // 
+            this.controlPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.controlPanel.Controls.Add(this.button4);
+            this.controlPanel.Controls.Add(this.button1);
+            this.controlPanel.Controls.Add(this.button3);
+            this.controlPanel.Controls.Add(this.button2);
+            this.controlPanel.Location = new System.Drawing.Point(642, 34);
+            this.controlPanel.Name = "controlPanel";
+            this.controlPanel.Size = new System.Drawing.Size(85, 120);
+            this.controlPanel.TabIndex = 26;
             // 
             // Form1
             // 
@@ -342,6 +425,7 @@
             this.BackgroundImage = global::SpaceTraderApp.Properties.Resources.dashboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 562);
+            this.Controls.Add(this.controlPanel);
             this.Controls.Add(this.sellingQty);
             this.Controls.Add(this.buyingQty);
             this.Controls.Add(this.buyButton);
@@ -368,6 +452,7 @@
             this.overheadPanel.PerformLayout();
             this.tableLayoutStatusPanel.ResumeLayout(false);
             this.tableLayoutStatusPanel.PerformLayout();
+            this.controlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,6 +483,11 @@
         private System.Windows.Forms.TextBox sellingQty;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label newsLabel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel controlPanel;
     }
 }
 

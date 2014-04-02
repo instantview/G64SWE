@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Collections;
 using System.Threading; 
-using SpaceTrader; 
+using SpaceTrader;
+using System.Media; 
 
 
 namespace SpaceTraderApp
@@ -25,6 +26,10 @@ namespace SpaceTraderApp
         private List<Planet> planetsList;
         Player player;
 
+        public enum SoundType
+        {
+            Transaction, SpaceshipFlight
+        }
 
         public Form1()
         {  // Starting the game
@@ -51,7 +56,7 @@ namespace SpaceTraderApp
             PopulateGridView(holdGridView, CargoHoldTableHeaders, player.CargoHold.GetItems());
             
             // Set up UI 
-            fundsLabel.Text = player.Account.Balance.ToString();
+            fundsLabel.Text = InPounds(player.Account.Balance);
             planetNameLabel.Text = currPlanet.name; 
             holdStatsLabel.Text = player.CargoHold.Status();
             fuelBar.Value = 100; 
@@ -59,7 +64,8 @@ namespace SpaceTraderApp
             // Set up price changing 
             System.Timers.Timer aTimer = new System.Timers.Timer();
             aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
-            aTimer.Interval = 20000;
+            //aTimer.Interval = 20000;
+            aTimer.Interval = 5000;
             aTimer.Enabled = true;
         }
 
@@ -188,6 +194,29 @@ namespace SpaceTraderApp
             newsLabel.Text = message;
         }
 
+        private void PlaySound(SoundType soundType)
+        {
+            System.IO.UnmanagedMemoryStream soundByte;
+            switch (soundType)
+            {
+                case SoundType.SpaceshipFlight:
+                    soundByte = global::SpaceTraderApp.Properties.Resources.scifi017;
+                    break;
+                case SoundType.Transaction:
+                    soundByte = global::SpaceTraderApp.Properties.Resources.cashregister;
+                    break;
+                default:
+                    soundByte = global::SpaceTraderApp.Properties.Resources.scifi017;
+                    break;
+            }
+            new SoundPlayer(soundByte).Play();
+        }
+
+        private String InPounds(int amount)
+        {
+            return amount.ToString("c0", System.Globalization.CultureInfo.CreateSpecificCulture("en-GB"));
+        }
+
         /* 
          * Events 
          */
@@ -198,38 +227,39 @@ namespace SpaceTraderApp
         }
 
         private void planetsBoard_Click(object sender, EventArgs e)
-        {  bool planetSelected = false;
-        for (int i = 0; i < planetsList.Count; i++)
-        {
-            if (planetsList[i].Gp.IsVisible(((MouseEventArgs)e).Location))
+        {  
+            bool planetSelected = false;
+            for (int i = 0; i < planetsList.Count; i++)
             {
-                currPlanet = planetsList[i];
-                picturBoxPlanetsBoard.Refresh();
-                vplanetsBoard.DrawEllipse(System.Drawing.Pens.Yellow, planetsList[i].getSize());
-                planetSelected = true;
-                
-                planetNameLabel.Text = planetsList[i].name; 
-                PopulateGridView(marketGridView, MarketTableHeaders, planetsList[i].ItemsList);
-                
-                if (fuelBar.Value > 0)
+                if (planetsList[i].Gp.IsVisible(((MouseEventArgs)e).Location))
                 {
-                    fuelBar.Value = fuelBar.Value - 10;
-                }
-                else
-                {
+                    if (fuelBar.Value > 0)
+                    {
+                        fuelBar.Value = fuelBar.Value - 10;
+                        //PlaySound(SoundType.SpaceshipFlight);
+                        //System.Threading.Thread.Sleep(3800);
+                    }
+                    else
+                    {
+                        TheEnd gameover = new TheEnd();
+                        gameover.ShowDialog();
+                        Application.Exit();
+                    }
 
-                    TheEnd gameover = new TheEnd();
-                    gameover.ShowDialog();
-                    Application.Exit();
+                    currPlanet = planetsList[i];
+                    picturBoxPlanetsBoard.Refresh();
+                    vplanetsBoard.DrawEllipse(System.Drawing.Pens.Yellow, planetsList[i].getSize());
+                    planetSelected = true;
+                
+                    planetNameLabel.Text = planetsList[i].name; 
+                    PopulateGridView(marketGridView, MarketTableHeaders, planetsList[i].ItemsList);
                 }
-
             }
-        }
-          
-                
-               if  (planetSelected == false)
-               { picturBoxPlanetsBoard.Refresh();
-               }
+
+            if (planetSelected == false)
+            { 
+                picturBoxPlanetsBoard.Refresh();
+            }
 
         }
 
@@ -283,8 +313,9 @@ namespace SpaceTraderApp
             PopulateGridView(marketGridView, MarketTableHeaders, currPlanet.ItemsList);
             PopulateGridView(holdGridView, CargoHoldTableHeaders, player.CargoHold.ItemList);
             player.Account.MoneyOut(itemPrice * quantity);
-            fundsLabel.Text = player.Account.Balance.ToString();
+            fundsLabel.Text = InPounds(player.Account.Balance);
             holdStatsLabel.Text = player.CargoHold.Status();
+            PlaySound(SoundType.Transaction); 
         }
 
         private void sellButton_Click(object sender, EventArgs e)
@@ -312,7 +343,6 @@ namespace SpaceTraderApp
                 return;
             }
 
-
             // remove items from planet 
             currPlanet.ItemsList[holdGridView.CurrentCell.RowIndex].increaseStock(sellQuantity);
             player.CargoHold.ItemList[holdGridView.CurrentCell.RowIndex].reduceStock(sellQuantity);
@@ -321,8 +351,9 @@ namespace SpaceTraderApp
             PopulateGridView(holdGridView, CargoHoldTableHeaders, player.CargoHold.ItemList);
             
             player.Account.Deposit(itemPrice * sellQuantity);
-            fundsLabel.Text = player.Account.Balance.ToString();
+            fundsLabel.Text = InPounds(player.Account.Balance);
             holdStatsLabel.Text = player.CargoHold.Status();
+            PlaySound(SoundType.Transaction); 
         }
         
         private void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
