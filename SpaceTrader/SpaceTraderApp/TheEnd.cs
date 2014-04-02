@@ -16,5 +16,10 @@ namespace SpaceTraderApp
         {
             InitializeComponent();
         }
+
+        private void TheEnd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

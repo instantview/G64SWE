@@ -7,10 +7,10 @@ namespace SpaceTraderTest
     [TestClass]
     public class AccountTest
     {
-        [TestMethod]
-        public void Account_Constructs_Ok()
-        {
-            Account account = new Account(); 
-        }
+        //[TestMethod]
+        //public void Account_Constructs_Ok()
+        //{
+        //    Account account = new Account(); 
+        //}
     }
 }

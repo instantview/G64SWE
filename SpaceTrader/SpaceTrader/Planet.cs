@@ -49,12 +49,7 @@ namespace SpaceTrader
             height = vheight;
             width = vwidth;
             setGraphicsPath();
-            addItems();
-
-
-
-
-
+            AddItems();
         }
 
         public int width { get; set; }
@@ -73,7 +68,7 @@ namespace SpaceTrader
 
             gp.CloseFigure();
         }
-        public void addItems()
+        public void AddItems()
         {
             itemsList.Add(new Item("Gold", 200, 150));
             itemsList.Add(new Item("Silver", 140, 80));

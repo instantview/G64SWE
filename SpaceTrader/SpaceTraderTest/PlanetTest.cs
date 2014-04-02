@@ -7,10 +7,10 @@ namespace SpaceTraderTest
     [TestClass]
     public class PlanetTest
     {
-        [TestMethod]
-        public void Planet_Constructs_Ok()
-        {
-            Planet planet = new Planet();
-        }
+        //[TestMethod]
+        //public void Planet_Constructs_Ok()
+        //{
+        //    Planet planet = new Planet();
+        //}
     }
 }

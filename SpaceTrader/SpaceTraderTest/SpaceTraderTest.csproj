@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AccountTest.cs" />
     <Compile Include="CargoHoldTest.cs" />
+    <Compile Include="DatabaseTest.cs" />
     <Compile Include="PlanetTest.cs" />
     <Compile Include="PlayerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

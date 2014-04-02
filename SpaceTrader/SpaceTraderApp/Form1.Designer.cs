@@ -31,18 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.marketGridView = new System.Windows.Forms.DataGridView();
-            this.cargoHoldPanel = new System.Windows.Forms.Panel();
+            this.holdPanel = new System.Windows.Forms.Panel();
             this.holdGridView = new System.Windows.Forms.DataGridView();
             this.marketLabel = new System.Windows.Forms.Label();
             this.marketPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cargoLabel = new System.Windows.Forms.Label();
             this.picturBoxPlanetsBoard = new System.Windows.Forms.PictureBox();
             this.overheadPanel = new System.Windows.Forms.Panel();
             this.newsLabel = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.planetNameTxt = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             this.fuelBar = new System.Windows.Forms.ProgressBar();
-            this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,17 +52,32 @@
             this.planetNameLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.fundsLabel = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.label12 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+=======
+            this.holdStatsLabel = new System.Windows.Forms.Label();
+            this.buyButton = new System.Windows.Forms.Button();
+            this.sellButton = new System.Windows.Forms.Button();
+            this.buyingQty = new System.Windows.Forms.TextBox();
+            this.sellingQty = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.controlPanel = new System.Windows.Forms.Panel();
+>>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
-            this.cargoHoldPanel.SuspendLayout();
+            this.holdPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).BeginInit();
             this.marketPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturBoxPlanetsBoard)).BeginInit();
             this.overheadPanel.SuspendLayout();
             this.tableLayoutStatusPanel.SuspendLayout();
+            this.controlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // marketGridView
@@ -72,16 +89,16 @@
             this.marketGridView.Location = new System.Drawing.Point(0, 0);
             this.marketGridView.Name = "marketGridView";
             this.marketGridView.ReadOnly = true;
-            this.marketGridView.Size = new System.Drawing.Size(200, 99);
+            this.marketGridView.Size = new System.Drawing.Size(197, 90);
             this.marketGridView.TabIndex = 1;
             // 
-            // cargoHoldPanel
+            // holdPanel
             // 
-            this.cargoHoldPanel.Controls.Add(this.holdGridView);
-            this.cargoHoldPanel.Location = new System.Drawing.Point(793, 301);
-            this.cargoHoldPanel.Name = "cargoHoldPanel";
-            this.cargoHoldPanel.Size = new System.Drawing.Size(200, 99);
-            this.cargoHoldPanel.TabIndex = 0;
+            this.holdPanel.Controls.Add(this.holdGridView);
+            this.holdPanel.Location = new System.Drawing.Point(800, 289);
+            this.holdPanel.Name = "holdPanel";
+            this.holdPanel.Size = new System.Drawing.Size(142, 99);
+            this.holdPanel.TabIndex = 0;
             // 
             // holdGridView
             // 
@@ -92,7 +109,7 @@
             this.holdGridView.Location = new System.Drawing.Point(0, 0);
             this.holdGridView.Name = "holdGridView";
             this.holdGridView.ReadOnly = true;
-            this.holdGridView.Size = new System.Drawing.Size(200, 99);
+            this.holdGridView.Size = new System.Drawing.Size(142, 99);
             this.holdGridView.TabIndex = 2;
             // 
             // marketLabel
@@ -100,10 +117,10 @@
             this.marketLabel.AutoSize = true;
             this.marketLabel.BackColor = System.Drawing.Color.Black;
             this.marketLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.marketLabel.Location = new System.Drawing.Point(244, 278);
+            this.marketLabel.Location = new System.Drawing.Point(244, 267);
             this.marketLabel.Name = "marketLabel";
-            this.marketLabel.Padding = new System.Windows.Forms.Padding(72, 5, 70, 5);
-            this.marketLabel.Size = new System.Drawing.Size(182, 23);
+            this.marketLabel.Padding = new System.Windows.Forms.Padding(78, 5, 79, 5);
+            this.marketLabel.Size = new System.Drawing.Size(197, 23);
             this.marketLabel.TabIndex = 1;
             this.marketLabel.Text = "Market";
             this.marketLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.marketLabel_Paint);
@@ -111,23 +128,23 @@
             // marketPanel
             // 
             this.marketPanel.Controls.Add(this.marketGridView);
-            this.marketPanel.Location = new System.Drawing.Point(244, 301);
+            this.marketPanel.Location = new System.Drawing.Point(244, 290);
             this.marketPanel.Name = "marketPanel";
-            this.marketPanel.Size = new System.Drawing.Size(200, 99);
+            this.marketPanel.Size = new System.Drawing.Size(197, 90);
             this.marketPanel.TabIndex = 0;
             // 
-            // label1
+            // cargoLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(793, 278);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(45, 5, 70, 5);
-            this.label1.Size = new System.Drawing.Size(213, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Cargo Hold (3/100)";
-            this.label1.Paint += new System.Windows.Forms.PaintEventHandler(this.marketLabel_Paint);
+            this.cargoLabel.AutoSize = true;
+            this.cargoLabel.BackColor = System.Drawing.Color.Black;
+            this.cargoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cargoLabel.Location = new System.Drawing.Point(800, 266);
+            this.cargoLabel.Name = "cargoLabel";
+            this.cargoLabel.Padding = new System.Windows.Forms.Padding(50, 5, 56, 5);
+            this.cargoLabel.Size = new System.Drawing.Size(141, 23);
+            this.cargoLabel.TabIndex = 2;
+            this.cargoLabel.Text = "Cargo";
+            this.cargoLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.marketLabel_Paint);
             // 
             // picturBoxPlanetsBoard
             // 
@@ -147,10 +164,11 @@
             this.overheadPanel.Controls.Add(this.newsLabel);
             this.overheadPanel.Location = new System.Drawing.Point(258, 30);
             this.overheadPanel.Name = "overheadPanel";
-            this.overheadPanel.Size = new System.Drawing.Size(469, 124);
+            this.overheadPanel.Size = new System.Drawing.Size(383, 124);
             this.overheadPanel.TabIndex = 9;
             // 
             // newsLabel
+<<<<<<< HEAD
             // 
             this.newsLabel.AutoSize = true;
             this.newsLabel.BackColor = System.Drawing.Color.Transparent;
@@ -171,12 +189,18 @@
             this.planetNameTxt.TabIndex = 4;
             // 
             // textBox1
+=======
+>>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(47, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 26);
-            this.textBox1.TabIndex = 6;
+            this.newsLabel.AutoSize = true;
+            this.newsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.newsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.newsLabel.Location = new System.Drawing.Point(11, 31);
+            this.newsLabel.Name = "newsLabel";
+            this.newsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.newsLabel.Size = new System.Drawing.Size(50, 23);
+            this.newsLabel.TabIndex = 20;
+            this.newsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // fuelBar
             // 
@@ -185,19 +209,6 @@
             this.fuelBar.Name = "fuelBar";
             this.fuelBar.Size = new System.Drawing.Size(160, 25);
             this.fuelBar.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(91, 226);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label4.Size = new System.Drawing.Size(101, 23);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Location:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -211,7 +222,7 @@
             this.label9.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
             this.label9.Size = new System.Drawing.Size(104, 31);
             this.label9.TabIndex = 19;
-            this.label9.Text = "Time:";
+            this.label9.Text = "Hold:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
@@ -257,7 +268,7 @@
             this.tableLayoutStatusPanel.Controls.Add(this.label7, 0, 2);
             this.tableLayoutStatusPanel.Controls.Add(this.label9, 0, 3);
             this.tableLayoutStatusPanel.Controls.Add(this.fundsLabel, 1, 2);
-            this.tableLayoutStatusPanel.Controls.Add(this.label12, 1, 3);
+            this.tableLayoutStatusPanel.Controls.Add(this.holdStatsLabel, 1, 3);
             this.tableLayoutStatusPanel.Location = new System.Drawing.Point(730, 30);
             this.tableLayoutStatusPanel.Name = "tableLayoutStatusPanel";
             this.tableLayoutStatusPanel.RowCount = 4;
@@ -312,24 +323,23 @@
             this.fundsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
             this.fundsLabel.Size = new System.Drawing.Size(160, 31);
             this.fundsLabel.TabIndex = 22;
-            this.fundsLabel.Text = "$5,000";
             this.fundsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label12
+            // holdStatsLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label12.Location = new System.Drawing.Point(113, 93);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.label12.Size = new System.Drawing.Size(160, 31);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "7 days";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.holdStatsLabel.AutoSize = true;
+            this.holdStatsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.holdStatsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.holdStatsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.holdStatsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.holdStatsLabel.Location = new System.Drawing.Point(113, 93);
+            this.holdStatsLabel.Name = "holdStatsLabel";
+            this.holdStatsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
+            this.holdStatsLabel.Size = new System.Drawing.Size(160, 31);
+            this.holdStatsLabel.TabIndex = 23;
+            this.holdStatsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+<<<<<<< HEAD
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -355,6 +365,121 @@
             this.label3.Size = new System.Drawing.Size(110, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Market status:";
+=======
+            // buyButton
+            // 
+            this.buyButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buyButton.FlatAppearance.BorderSize = 0;
+            this.buyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buyButton.Location = new System.Drawing.Point(244, 386);
+            this.buyButton.Name = "buyButton";
+            this.buyButton.Size = new System.Drawing.Size(75, 23);
+            this.buyButton.TabIndex = 2;
+            this.buyButton.Text = "Buy >>";
+            this.buyButton.UseVisualStyleBackColor = false;
+            this.buyButton.Click += new System.EventHandler(this.buyButton_Click);
+            // 
+            // sellButton
+            // 
+            this.sellButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sellButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.sellButton.FlatAppearance.BorderSize = 0;
+            this.sellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sellButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.sellButton.Location = new System.Drawing.Point(868, 392);
+            this.sellButton.Name = "sellButton";
+            this.sellButton.Size = new System.Drawing.Size(75, 23);
+            this.sellButton.TabIndex = 3;
+            this.sellButton.Text = "<< Sell ";
+            this.sellButton.UseVisualStyleBackColor = false;
+            this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
+            // 
+            // buyingQty
+            // 
+            this.buyingQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.buyingQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyingQty.Location = new System.Drawing.Point(388, 389);
+            this.buyingQty.Name = "buyingQty";
+            this.buyingQty.Size = new System.Drawing.Size(53, 16);
+            this.buyingQty.TabIndex = 20;
+            this.buyingQty.Text = "0";
+            // 
+            // sellingQty
+            // 
+            this.sellingQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sellingQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sellingQty.Location = new System.Drawing.Point(800, 394);
+            this.sellingQty.Name = "sellingQty";
+            this.sellingQty.Size = new System.Drawing.Size(53, 16);
+            this.sellingQty.TabIndex = 21;
+            this.sellingQty.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Shopping";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(3, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "High Scores";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(3, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Save/Load";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(3, 86);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "New / Quit";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // controlPanel
+            // 
+            this.controlPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.controlPanel.Controls.Add(this.button4);
+            this.controlPanel.Controls.Add(this.button1);
+            this.controlPanel.Controls.Add(this.button3);
+            this.controlPanel.Controls.Add(this.button2);
+            this.controlPanel.Location = new System.Drawing.Point(642, 34);
+            this.controlPanel.Name = "controlPanel";
+            this.controlPanel.Size = new System.Drawing.Size(85, 120);
+            this.controlPanel.TabIndex = 26;
+>>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             // 
             // Form1
             // 
@@ -363,26 +488,33 @@
             this.BackgroundImage = global::SpaceTraderApp.Properties.Resources.dashboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 562);
+<<<<<<< HEAD
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.planetNameTxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
+=======
+            this.Controls.Add(this.controlPanel);
+            this.Controls.Add(this.sellingQty);
+            this.Controls.Add(this.buyingQty);
+            this.Controls.Add(this.buyButton);
+            this.Controls.Add(this.sellButton);
+>>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             this.Controls.Add(this.tableLayoutStatusPanel);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.overheadPanel);
             this.Controls.Add(this.picturBoxPlanetsBoard);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cargoLabel);
             this.Controls.Add(this.marketLabel);
-            this.Controls.Add(this.cargoHoldPanel);
+            this.Controls.Add(this.holdPanel);
             this.Controls.Add(this.marketPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Space Trader v0.4";
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).EndInit();
-            this.cargoHoldPanel.ResumeLayout(false);
+            this.holdPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).EndInit();
             this.marketPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picturBoxPlanetsBoard)).EndInit();
@@ -390,6 +522,7 @@
             this.overheadPanel.PerformLayout();
             this.tableLayoutStatusPanel.ResumeLayout(false);
             this.tableLayoutStatusPanel.PerformLayout();
+            this.controlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,30 +530,30 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel cargoHoldPanel;
+        private System.Windows.Forms.Panel holdPanel;
         private System.Windows.Forms.DataGridView marketGridView;
         private System.Windows.Forms.Label marketLabel;
         private System.Windows.Forms.Panel marketPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cargoLabel;
         private System.Windows.Forms.DataGridView holdGridView;
         private System.Windows.Forms.PictureBox picturBoxPlanetsBoard;
         private System.Windows.Forms.Panel overheadPanel;
-        private System.Windows.Forms.TextBox planetNameTxt;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutStatusPanel;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label planetNameLabel;
         private System.Windows.Forms.Label fundsLabel;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label holdStatsLabel;
         private System.Windows.Forms.ProgressBar fuelBar;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label newsLabel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel controlPanel;
     }
 }
 

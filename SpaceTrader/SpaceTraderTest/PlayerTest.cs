@@ -7,17 +7,17 @@ namespace SpaceTraderTest
     [TestClass]
     public class PlayerTest
     {
-        Player player;
+        //Player player;
 
-        [TestInitialize]
-        public void init()
-        {
-            player = new Player();
-        }
+        //[TestInitialize]
+        //public void init()
+        //{
+        //    player = new Player();
+        //}
 
-        [TestMethod]
-        public void Player_Constructs_Ok()
-        {
-        }
+        //[TestMethod]
+        //public void Player_Constructs_Ok()
+        //{
+        //}
     }
 }

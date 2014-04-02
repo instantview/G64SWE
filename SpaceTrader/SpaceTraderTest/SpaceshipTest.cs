@@ -7,19 +7,19 @@ namespace SpaceTraderTest
     [TestClass]
     public class SpaceshipTest
     {
-        Spaceship spaceship;
+        //Spaceship spaceship;
 
-        [TestInitialize]
-        public void init()
-        {
-            spaceship = new Spaceship();
-        }
+        //[TestInitialize]
+        //public void init()
+        //{
+        //    spaceship = new Spaceship();
+        //}
 
-        [TestMethod]
-        public void Spaceship_Constructs_Ok()
-        {
-            Assert.IsNotNull(spaceship); 
-        }
+        //[TestMethod]
+        //public void Spaceship_Constructs_Ok()
+        //{
+        //    Assert.IsNotNull(spaceship); 
+        //}
 
         //[TestMethod]
         //public void GetCargoItems_ReturnsItemsStoredInCargoHold()
