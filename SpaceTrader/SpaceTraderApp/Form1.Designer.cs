@@ -39,11 +39,6 @@
             this.picturBoxPlanetsBoard = new System.Windows.Forms.PictureBox();
             this.overheadPanel = new System.Windows.Forms.Panel();
             this.newsLabel = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.planetNameTxt = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-=======
->>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             this.fuelBar = new System.Windows.Forms.ProgressBar();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,12 +47,6 @@
             this.planetNameLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.fundsLabel = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.label12 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-=======
             this.holdStatsLabel = new System.Windows.Forms.Label();
             this.buyButton = new System.Windows.Forms.Button();
             this.sellButton = new System.Windows.Forms.Button();
@@ -69,7 +58,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
->>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             ((System.ComponentModel.ISupportInitialize)(this.marketGridView)).BeginInit();
             this.holdPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.holdGridView)).BeginInit();
@@ -168,29 +156,6 @@
             this.overheadPanel.TabIndex = 9;
             // 
             // newsLabel
-<<<<<<< HEAD
-            // 
-            this.newsLabel.AutoSize = true;
-            this.newsLabel.BackColor = System.Drawing.Color.Transparent;
-            this.newsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.newsLabel.Location = new System.Drawing.Point(3, 4);
-            this.newsLabel.Name = "newsLabel";
-            this.newsLabel.Padding = new System.Windows.Forms.Padding(20, 5, 30, 5);
-            this.newsLabel.Size = new System.Drawing.Size(50, 23);
-            this.newsLabel.TabIndex = 20;
-            this.newsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // planetNameTxt
-            // 
-            this.planetNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.planetNameTxt.Location = new System.Drawing.Point(47, 92);
-            this.planetNameTxt.Name = "planetNameTxt";
-            this.planetNameTxt.Size = new System.Drawing.Size(132, 26);
-            this.planetNameTxt.TabIndex = 4;
-            // 
-            // textBox1
-=======
->>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             // 
             this.newsLabel.AutoSize = true;
             this.newsLabel.BackColor = System.Drawing.Color.Transparent;
@@ -339,33 +304,6 @@
             this.holdStatsLabel.TabIndex = 23;
             this.holdStatsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-<<<<<<< HEAD
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkGray;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(50, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Planet Name:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.DarkGray;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Market status:";
-=======
             // buyButton
             // 
             this.buyButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -479,7 +417,6 @@
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Size = new System.Drawing.Size(85, 120);
             this.controlPanel.TabIndex = 26;
->>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             // 
             // Form1
             // 
@@ -488,18 +425,11 @@
             this.BackgroundImage = global::SpaceTraderApp.Properties.Resources.dashboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 562);
-<<<<<<< HEAD
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.planetNameTxt);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-=======
             this.Controls.Add(this.controlPanel);
             this.Controls.Add(this.sellingQty);
             this.Controls.Add(this.buyingQty);
             this.Controls.Add(this.buyButton);
             this.Controls.Add(this.sellButton);
->>>>>>> 5b3d01db5cfaec89b447585a1274e758aa12f834
             this.Controls.Add(this.tableLayoutStatusPanel);
             this.Controls.Add(this.overheadPanel);
             this.Controls.Add(this.picturBoxPlanetsBoard);
@@ -547,6 +477,10 @@
         private System.Windows.Forms.Label fundsLabel;
         private System.Windows.Forms.Label holdStatsLabel;
         private System.Windows.Forms.ProgressBar fuelBar;
+        private System.Windows.Forms.Button buyButton;
+        private System.Windows.Forms.Button sellButton;
+        private System.Windows.Forms.TextBox buyingQty;
+        private System.Windows.Forms.TextBox sellingQty;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label newsLabel;
         private System.Windows.Forms.Button button1;
